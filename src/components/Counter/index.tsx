@@ -22,4 +22,4 @@ class Counter extends React.Component<Props> {
     }
 }
 
-export default pure(Counter);
+export default Counter;
