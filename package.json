@@ -2,15 +2,15 @@
   "name": "reactsearchapp",
   "version": "0.1.0",
   "description": "reactSearchApp",
-  "engines" : {
-    "node" : ">=6"
+  "engines": {
+    "node": ">=8"
   },
   "main": "src/index.js",
   "scripts": {
     "build:dev:css": "sass sass/index.scss dist/index.css",
-    "build:dev:js": "webpack --config webpack.prod.js --progress",
+    "build:dev:js": "webpack --config webpack.dev.js --progress",
     "build:prod:css": "sass -s compressed sass/index.scss dist/index.css",
-    "build:prod:js": "webpack --config webpack.dev.js --progress",
+    "build:prod:js": "webpack --config webpack.prod.js --progress",
     "start:dev": "npm-run-all build:dev:*",
     "start:prod": "npm-run-all build:prod:*",
     "start:watch": "npm-run-all watch:*",
@@ -26,16 +26,13 @@
     "@types/react": "^16.3.12",
     "@types/react-dom": "^16.0.5",
     "@types/react-redux": "^5.0.18",
-    "@types/react-router": "^4.0.28",
     "@types/recompose": "^0.26.1",
     "@types/redux-logger": "^3.0.6",
     "@types/webpack-env": "1.13.6",
     "awesome-typescript-loader": "^5.2.0",
-    "connected-react-router": "^4.3.0",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-redux": "^5.0.7",
-    "react-router": "^4.3.1",
     "recompose": "^0.27.0",
     "redux": "^3.0.0",
     "redux-logger": "^3.0.6",
