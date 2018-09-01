@@ -1,0 +1,17 @@
+{
+    "[typescript]": {
+        "editor.formatOnSave": true,
+        "editor.rulers": [80]
+    },
+    "[typescriptreact]": {
+        "editor.formatOnSave": true,
+        "editor.rulers": [80]
+    },
+    "[scss]": {
+        "editor.formatOnSave": true,
+        "editor.rulers": [80]
+    },
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true,
+    "trailing-spaces.highlightCurrentLine": false
+}
