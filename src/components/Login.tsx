@@ -1,14 +1,8 @@
 import * as React from "react";
-import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
+import { Button, ControlLabel, FormControl, FormGroup } from "react-bootstrap";
 
-interface Props {
-    decrementCounter: () => void;
-    incrementCounter: () => void;
-    count: number;
-}
-
-export default class Login extends React.Component<Props, any> {
-    constructor(props: Props) {
+export default class Login extends React.Component<any, any> {
+    constructor(props: any) {
         super(props);
 
         this.state = {

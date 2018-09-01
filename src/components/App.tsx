@@ -2,6 +2,7 @@ import * as React from "react";
 import { pure } from "recompose";
 
 import Counter from "@src/containers/Counter";
+import Login from "./Login";
 
 interface Props {
     decrementCounter: () => void;
@@ -10,6 +11,6 @@ interface Props {
 }
 
 const App: React.SFC<Props> = ({ decrementCounter, incrementCounter, count }) =>
-    true ? <Counter /> : <Counter />;
+    true ? <Login /> : <Login />;
 
 export default pure(App);
