@@ -12,7 +12,7 @@ const ROOT_ELEMENT = "root";
 if (typeof document !== "undefined") {
     ReactDOM.render(
         <Provider store={STORE}>
-            <App/>
+            <App />
         </Provider>,
         document.getElementById(ROOT_ELEMENT),
     );
