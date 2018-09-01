@@ -7,19 +7,17 @@ interface Props {
     count: number;
 }
 
-class Counter extends React.Component<Props> {
-    render() {
-        const { count, incrementCounter, decrementCounter } = this.props;
+const Counter: React.SFC<Props> = ({
+    decrementCounter,
+    incrementCounter,
+    count,
+}) => (
+    <div className="counter">
+        <h1>Counter: {count}</h1>
+        <button onClick={incrementCounter}>+</button>
+        <button onClick={decrementCounter}>-</button>
+        <hr />
+    </div>
+);
 
-        return (
-            <div className="counter">
-                <h1>Counter: {count}</h1>
-                <button onClick={incrementCounter}>+</button>
-                <button onClick={decrementCounter}>-</button>
-                <hr />
-            </div>
-        );
-    }
-}
-
-export default Counter;
+export default pure(Counter);
