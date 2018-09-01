@@ -1,7 +1,7 @@
 import * as React from "react";
 import { connect } from "react-redux";
 
-import App from "@src/components/App";
+import Counter from "@src/components/Counter";
 import { decrementCounter, incrementCounter } from "@src/ducks/app/actions";
 import { Action, State } from "@src/store/configureStore";
 
@@ -20,4 +20,4 @@ function mapDispatchToProps(dispatch: (action: Action) => void) {
 export default connect(
     mapStateToProps,
     mapDispatchToProps,
-)(App) as React.ComponentType<any>;
+)(Counter) as React.ComponentType<any>;
