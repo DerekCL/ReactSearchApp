@@ -2,15 +2,15 @@ import { FSA } from "@src/helpers/FSA";
 
 /** Action type constants. */
 export const SWITCH_PAGE = "SWITCH_PAGE";
-export const LOGIN = "LOGIN";
-export const REGISTER = "REGISTER";
+export const LOGIN_EPIC = "LOGIN_EPIC";
+export const REGISTER_EPIC = "REGISTER_EPIC";
 
 /** Action type definitions. */
 export type SwitchPageAction = FSA<typeof SWITCH_PAGE, string>;
-export type LoginAction = FSA<typeof LOGIN>;
-export type RegisterAction = FSA<typeof REGISTER>;
+export type LoginEpicAction = FSA<typeof LOGIN_EPIC>;
+export type RegisterEpicAction = FSA<typeof REGISTER_EPIC>;
 
-export type Action = SwitchPageAction | LoginAction | RegisterAction;
+export type Action = SwitchPageAction | LoginEpicAction | RegisterEpicAction;
 
 /** Action creators.  */
 export function SwitchPage(page: string): SwitchPageAction {
@@ -20,8 +20,14 @@ export function SwitchPage(page: string): SwitchPageAction {
     };
 }
 
-export function LoginEpic(): LoginAction {
+export function LoginEpicCreator(): LoginEpicAction {
     return {
-        type: LOGIN,
+        type: LOGIN_EPIC,
+    };
+}
+
+export function LoginEpicCreator(): LoginEpicAction {
+    return {
+        type: LOGIN_EPIC,
     };
 }

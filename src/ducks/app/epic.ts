@@ -6,7 +6,7 @@ import {
     State as RootState,
 } from "@src/store/configureStore";
 
-import { LOGIN, SWITCH_PAGE, SwitchPage } from "./actions";
+import { LOGIN_EPIC, SWITCH_PAGE, SwitchPage } from "./actions";
 
 /**
  * When we fetch mailing files, make an API request to get the files for the
@@ -14,7 +14,7 @@ import { LOGIN, SWITCH_PAGE, SwitchPage } from "./actions";
  */
 const LoginEpic: Epic<any, RootState> = (action$, store) =>
     action$.pipe(
-        ofType(LOGIN),
+        ofType(LOGIN_EPIC),
         mapTo({
             payload: "Search",
             type: SWITCH_PAGE,
