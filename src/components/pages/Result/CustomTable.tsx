@@ -4,7 +4,7 @@ import { pure } from "recompose";
 
 const CustomTable: React.SFC<any> = props => (
     <div>
-        <BootstrapTable data={props.data}>
+        <BootstrapTable data={props.searchData}>
             <TableHeaderColumn isKey dataField="id">
                 ID
             </TableHeaderColumn>
