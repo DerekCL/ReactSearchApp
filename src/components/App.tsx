@@ -1,8 +1,8 @@
 import * as React from "react";
 import { pure } from "recompose";
 
+import Nav from "@src/containers/Nav";
 import PageCheck from "@src/containers/PageCheck";
-import Nav from "./Nav";
 
 const App: React.SFC<any> = () => (
     <div>
