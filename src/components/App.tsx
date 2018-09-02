@@ -5,6 +5,7 @@ import Counter from "@src/containers/Counter";
 import Login from "./Login";
 import Register from "./Register";
 import Search from "./Search";
+import TOS from "./TOS";
 
 interface Props {
     decrementCounter: () => void;
@@ -21,7 +22,9 @@ const App: React.SFC<Props> = props => {
         case "Register":
             return <Register SwitchPage={props.SwitchPage} />;
         case "Search":
-            return <Search SwitchPage={props.SwitchPage} />;
+            return <Search />;
+        case "TOS":
+            return <TOS />;
         default:
             return <Login SwitchPage={props.SwitchPage} />;
     }

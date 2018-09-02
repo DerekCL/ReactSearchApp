@@ -26,6 +26,16 @@ export default class Register extends React.Component<any, any> {
         this.props.SwitchPage("Login");
     };
 
+    LoginRedirect = (event: any): void => {
+        event.preventDefault();
+        this.props.SwitchPage("Login");
+    };
+
+    TOSRedirect = (event: any): void => {
+        event.preventDefault();
+        this.props.SwitchPage("TOS");
+    };
+
     render() {
         return (
             <div className="Register">
@@ -55,6 +65,20 @@ export default class Register extends React.Component<any, any> {
                     >
                         Register
                     </Button>
+                    <div>
+                        <p>
+                            By creating an account you agree to our
+                            <a href="" onClick={this.TOSRedirect}>
+                                Terms of Service
+                            </a>
+                            .
+                        </p>
+                    </div>
+                    <div>
+                        <a href="" onClick={this.LoginRedirect}>
+                            Register Here
+                        </a>
+                    </div>
                 </form>
             </div>
         );
