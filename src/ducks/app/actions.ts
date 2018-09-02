@@ -20,7 +20,7 @@ export function SwitchPage(page: string): SwitchPageAction {
     };
 }
 
-export function LoginAC(): LoginAction {
+export function LoginEpic(): LoginAction {
     return {
         type: LOGIN,
     };
