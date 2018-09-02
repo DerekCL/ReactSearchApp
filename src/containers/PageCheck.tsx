@@ -3,9 +3,9 @@ import { connect } from "react-redux";
 
 import PageCheck from "@src/components/PageCheck";
 import {
-    LoginEpicCreator,
-    RegisterEpicCreator,
-    SwitchPage,
+    loginEpicCreator,
+    registerEpicCreator,
+    switchPage,
 } from "@src/ducks/app/actions";
 import { Action, State } from "@src/store/configureStore";
 
@@ -16,9 +16,9 @@ function mapStateToProps(state: State) {
 }
 function mapDispatchToProps(dispatch: (action: Action) => void) {
     return {
-        LoginEpicCreator: () => dispatch(LoginEpicCreator()),
-        RegisterEpicCreator: () => dispatch(RegisterEpicCreator()),
-        SwitchPage: (page: string) => dispatch(SwitchPage(page)),
+        loginEpicCreator: () => dispatch(loginEpicCreator()),
+        registerEpicCreator: () => dispatch(registerEpicCreator()),
+        switchPage: (page: string) => dispatch(switchPage(page)),
     };
 }
 

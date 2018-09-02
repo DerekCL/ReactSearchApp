@@ -2,7 +2,7 @@ import * as React from "react";
 import { connect } from "react-redux";
 
 import Nav from "@src/components/Nav";
-import { SwitchPage } from "@src/ducks/app/actions";
+import { switchPage } from "@src/ducks/app/actions";
 import { Action, State } from "@src/store/configureStore";
 
 function mapStateToProps(state: State) {
@@ -12,7 +12,7 @@ function mapStateToProps(state: State) {
 }
 function mapDispatchToProps(dispatch: (action: Action) => void) {
     return {
-        SwitchPage: (page: string) => dispatch(SwitchPage(page)),
+        switchPage: (page: string) => dispatch(switchPage(page)),
     };
 }
 

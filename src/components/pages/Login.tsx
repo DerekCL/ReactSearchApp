@@ -23,12 +23,12 @@ export default class Login extends React.Component<any, any> {
 
     handleSubmit = (event: any): void => {
         event.preventDefault();
-        this.props.LoginEpicCreator();
+        this.props.loginEpicCreator();
     };
 
     RegisterRedirect = (event: any): void => {
         event.preventDefault();
-        this.props.SwitchPage("Register");
+        this.props.switchPage("Register");
     };
 
     render() {

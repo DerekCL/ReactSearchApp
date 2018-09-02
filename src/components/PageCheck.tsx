@@ -7,9 +7,9 @@ import Search from "@src/components/pages/Search";
 import TOS from "@src/components/pages/TOS";
 
 interface Props {
-    LoginEpicCreator: () => void;
-    RegisterEpicCreator: () => void;
-    SwitchPage: (page: string) => void;
+    loginEpicCreator: () => void;
+    registerEpicCreator: () => void;
+    switchPage: (page: string) => void;
     page: string;
 }
 
@@ -18,23 +18,23 @@ const PageCheck: React.SFC<Props> = props => {
         case "Login":
             return (
                 <Login
-                    SwitchPage={props.SwitchPage}
-                    LoginEpicCreator={props.LoginEpicCreator}
+                    switchPage={props.switchPage}
+                    loginEpicCreator={props.loginEpicCreator}
                 />
             );
         case "Register":
             return (
                 <Register
-                    SwitchPage={props.SwitchPage}
-                    RegisterEpicCreator={props.RegisterEpicCreator}
+                    switchPage={props.switchPage}
+                    registerEpicCreator={props.registerEpicCreator}
                 />
             );
         case "Search":
-            return <Search SwitchPage={props.SwitchPage} />;
+            return <Search switchPage={props.switchPage} />;
         case "TOS":
-            return <TOS SwitchPage={props.SwitchPage} />;
+            return <TOS switchPage={props.switchPage} />;
         default:
-            return <Login SwitchPage={props.SwitchPage} />;
+            return <Login switchPage={props.switchPage} />;
     }
 };
 

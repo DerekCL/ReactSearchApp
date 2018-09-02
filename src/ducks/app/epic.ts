@@ -8,7 +8,12 @@ import {
     State as RootState,
 } from "@src/store/configureStore";
 
-import { LOGIN_EPIC, REGISTER_EPIC, SWITCH_PAGE } from "./actions";
+import {
+    LOGIN_EPIC,
+    LOGIN_SUCCESS,
+    REGISTER_EPIC,
+    SWITCH_PAGE,
+} from "./actions";
 
 /**
  * When we fetch mailing files, make an API request to get the files for the
@@ -19,25 +24,25 @@ const LoginEpic: Epic<any, RootState> = (action$, store) =>
         ofType(LOGIN_EPIC),
         switchMap(() =>
             ajax
-                .get("http://www.google.com")
+                .get("https://www.google.com")
                 // Note the different operator here
                 .pipe(
                     mergeMap(payload =>
                         // Concat 2 observables so they fire sequentially
-                        Observable.concat(
-                            // Observable.of({
-                            //     type: LOGIN_SUCCESS,
-                            //     payload: payload.response,
-                            // }),
-                            Observable.of({
+                        [
+                            {
+                                payload,
+                                type: LOGIN_SUCCESS,
+                            },
+                            {
                                 payload: "Search",
                                 type: SWITCH_PAGE,
-                            }),
-                        ),
+                            },
+                        ],
                     ),
                     catchError(({ xhr }: any) =>
                         Observable.of({
-                            payload: "Search",
+                            payload: "TOS",
                             type: SWITCH_PAGE,
                         }),
                     ),

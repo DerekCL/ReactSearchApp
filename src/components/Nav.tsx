@@ -4,12 +4,12 @@ import { pure } from "recompose";
 const Nav: React.SFC<any> = props => {
     const LoginRedirect = (event: any): void => {
         event.preventDefault();
-        props.SwitchPage("Login");
+        props.switchPage("Login");
     };
 
     const RegisterRedirect = (event: any): void => {
         event.preventDefault();
-        props.SwitchPage("Register");
+        props.switchPage("Register");
     };
 
     return (

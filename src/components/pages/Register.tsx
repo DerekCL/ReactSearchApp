@@ -23,17 +23,17 @@ export default class Register extends React.Component<any, any> {
 
     handleSubmit = (event: any): void => {
         event.preventDefault();
-        this.props.RegisterEpicCreator();
+        this.props.registerEpicCreator();
     };
 
     LoginRedirect = (event: any): void => {
         event.preventDefault();
-        this.props.SwitchPage("Login");
+        this.props.switchPage("Login");
     };
 
     TOSRedirect = (event: any): void => {
         event.preventDefault();
-        this.props.SwitchPage("TOS");
+        this.props.switchPage("TOS");
     };
 
     render() {
