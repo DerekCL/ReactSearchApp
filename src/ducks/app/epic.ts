@@ -1,5 +1,7 @@
 import { combineEpics, Epic, ofType } from "redux-observable";
-import { mapTo } from "rxjs/operators";
+import { ajax } from "rxjs/observable/dom/ajax";
+import { catchError, mapTo, mergeMap, switchMap } from "rxjs/operators";
+import { Observable } from "rxjs/Rx";
 
 import {
     Action as RootAction,
@@ -15,6 +17,32 @@ import { LOGIN_EPIC, REGISTER_EPIC, SWITCH_PAGE } from "./actions";
 const LoginEpic: Epic<any, RootState> = (action$, store) =>
     action$.pipe(
         ofType(LOGIN_EPIC),
+        switchMap(() =>
+            ajax
+                .get("http://www.google.com")
+                // Note the different operator here
+                .pipe(
+                    mergeMap(payload =>
+                        // Concat 2 observables so they fire sequentially
+                        Observable.concat(
+                            // Observable.of({
+                            //     type: LOGIN_SUCCESS,
+                            //     payload: payload.response,
+                            // }),
+                            Observable.of({
+                                payload: "Search",
+                                type: SWITCH_PAGE,
+                            }),
+                        ),
+                    ),
+                    catchError(({ xhr }: any) =>
+                        Observable.of({
+                            payload: "Search",
+                            type: SWITCH_PAGE,
+                        }),
+                    ),
+                ),
+        ),
         mapTo({
             payload: "Search",
             type: SWITCH_PAGE,
