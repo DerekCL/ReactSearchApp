@@ -1,25 +1,33 @@
 import { FSA } from "@src/helpers/FSA";
 
 /** Action type constants. */
-export const INCREMENT = "INCREMENT";
-export const DECREMENT = "DECREMENT";
+export const SWITCH_PAGE = "SWITCH_PAGE";
+export const LOGIN_EPIC = "LOGIN_EPIC";
+export const REGISTER_EPIC = "REGISTER_EPIC";
 
 /** Action type definitions. */
-export type IncrementAction = FSA<typeof INCREMENT>;
+export type SwitchPageAction = FSA<typeof SWITCH_PAGE, string>;
+export type LoginEpicAction = FSA<typeof LOGIN_EPIC>;
+export type RegisterEpicAction = FSA<typeof REGISTER_EPIC>;
 
-export type DecrementAction = FSA<typeof DECREMENT>;
-
-export type Action = IncrementAction | DecrementAction;
+export type Action = SwitchPageAction | LoginEpicAction | RegisterEpicAction;
 
 /** Action creators.  */
-export function incrementCounter(): IncrementAction {
+export function SwitchPage(page: string): SwitchPageAction {
     return {
-        type: INCREMENT,
+        payload: page,
+        type: SWITCH_PAGE,
     };
 }
 
-export function decrementCounter(): DecrementAction {
+export function LoginEpicCreator(): LoginEpicAction {
     return {
-        type: DECREMENT,
+        type: LOGIN_EPIC,
+    };
+}
+
+export function RegisterEpicCreator(): RegisterEpicAction {
+    return {
+        type: REGISTER_EPIC,
     };
 }

@@ -1,18 +1,22 @@
 import * as React from "react";
 import { connect } from "react-redux";
 
-import App from "@src/components/App";
-
+import Nav from "@src/components/Nav";
+import { SwitchPage } from "@src/ducks/app/actions";
 import { Action, State } from "@src/store/configureStore";
 
 function mapStateToProps(state: State) {
-    return {};
+    return {
+        page: state.app.page,
+    };
 }
 function mapDispatchToProps(dispatch: (action: Action) => void) {
-    return {};
+    return {
+        SwitchPage: (page: string) => dispatch(SwitchPage(page)),
+    };
 }
 
 export default connect(
     mapStateToProps,
     mapDispatchToProps,
-)(App) as React.ComponentType<any>;
+)(Nav) as React.ComponentType<any>;

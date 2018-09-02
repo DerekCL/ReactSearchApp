@@ -4,7 +4,7 @@ import { combineEpics, createEpicMiddleware } from "redux-observable";
 
 import app, {
     Action as AppAction,
-    // epic as appEpic,
+    epic as appEpic,
     initialState as appInitialState,
     State as AppState,
 } from "@src/ducks/app";
@@ -18,7 +18,7 @@ export interface State {
 export type Action = AppAction;
 
 // /** The top level epic. */
-// const epic = combineEpics(appEpic);
+const epic = combineEpics(appEpic);
 
 /** The top level reducer. */
 const reducer = combineReducers<State | undefined>({
@@ -48,7 +48,7 @@ export default function configureStore(state?: State) {
         composeEnhancers(
             applyMiddleware(
                 logger, // For console redux state
-                // createEpicMiddleware(epic), // create an instance of the actual redux-observable middleware
+                createEpicMiddleware(epic), // create an instance of the actual redux-observable middleware
             ),
         ),
     );

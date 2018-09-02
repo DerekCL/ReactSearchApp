@@ -1,12 +1,19 @@
 import * as React from "react";
 import { connect } from "react-redux";
 
-import App from "@src/components/App";
-
+import CustomTable from "@src/components/pages/Result/CustomTable";
 import { Action, State } from "@src/store/configureStore";
 
+const data = [
+    { id: 1, name: "Gob", value: "2" },
+    { id: 2, name: "Buster", value: "5" },
+    { id: 3, name: "George Michael", value: "4" },
+];
+
 function mapStateToProps(state: State) {
-    return {};
+    return {
+        data,
+    };
 }
 function mapDispatchToProps(dispatch: (action: Action) => void) {
     return {};
@@ -15,4 +22,4 @@ function mapDispatchToProps(dispatch: (action: Action) => void) {
 export default connect(
     mapStateToProps,
     mapDispatchToProps,
-)(App) as React.ComponentType<any>;
+)(CustomTable) as React.ComponentType<any>;
