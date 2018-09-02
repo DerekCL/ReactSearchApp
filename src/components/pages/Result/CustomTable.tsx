@@ -9,7 +9,7 @@ const CustomTable: React.SFC<any> = props => (
                 ID
             </TableHeaderColumn>
             <TableHeaderColumn dataField="name">Name</TableHeaderColumn>
-            <TableHeaderColumn dataField="value">Value</TableHeaderColumn>
+            <TableHeaderColumn dataField="domain">Domain</TableHeaderColumn>
         </BootstrapTable>
     </div>
 );
