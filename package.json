@@ -16,7 +16,7 @@
     "start:watch": "npm-run-all watch:*",
     "start": "npm run start:watch",
     "test": "nyc mocha",
-    "watch:css": "sass sass/index.scss dist/index.css",
+    "watch:css": "sass --watch sass/index.scss dist/index.css",
     "watch:js": "webpack-dev-server --config webpack.dev.js --progress --hot",
     "watch": "npm-run-all watch:*"
   },
@@ -25,6 +25,7 @@
   "dependencies": {
     "@types/react": "^16.3.12",
     "@types/react-bootstrap": "^0.32.13",
+    "@types/react-bootstrap-table": "^4.3.5",
     "@types/react-dom": "^16.0.5",
     "@types/react-redux": "^5.0.18",
     "@types/recompose": "^0.26.1",
@@ -33,6 +34,7 @@
     "awesome-typescript-loader": "^5.2.0",
     "react": "^16.4.1",
     "react-bootstrap": "^0.32.3",
+    "react-bootstrap-table": "^4.3.1",
     "react-dom": "^16.4.1",
     "react-redux": "^5.0.7",
     "recompose": "^0.27.0",
