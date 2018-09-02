@@ -23,6 +23,12 @@ export default class Login extends React.Component<any, any> {
 
     handleSubmit = (event: any): void => {
         event.preventDefault();
+        this.props.SwitchPage("Search");
+    };
+
+    RegisterRedirect = (event: any): void => {
+        event.preventDefault();
+        this.props.SwitchPage("Register");
     };
 
     render() {
@@ -54,6 +60,11 @@ export default class Login extends React.Component<any, any> {
                     >
                         Login
                     </Button>
+                    <div>
+                        <a href="" onClick={this.RegisterRedirect}>
+                            Register Here
+                        </a>
+                    </div>
                 </form>
             </div>
         );
