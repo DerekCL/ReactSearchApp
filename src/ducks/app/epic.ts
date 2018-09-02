@@ -15,6 +15,15 @@ import {
     switchPage,
 } from "./actions";
 
+const host = `http://www.localhost`;
+const port = 7000;
+const query = `companies[]=nike
+&companies[]=adidas
+&companies[]=google
+&companies[]=microsoft
+&companies[]=balfour
+&companies[]=ethoca`;
+
 /**
  * When we fetch mailing files, make an API request to get the files for the
  * currently chosen year and set them in the store.
@@ -30,8 +39,7 @@ const LoginEpic: Epic<any, RootState> = (action$, store) =>
                 crossDomain: true,
                 method: "GET",
                 responseType: "json",
-                url:
-                    "http://www.localhost:7000/?companies[]=nike&companies[]=adidas&companies[]=google&companies[]=microsoft&companies[]=balfour&companies[]=ethoca",
+                url: `${host}:${port}/?${query}`,
             })
                 // Note the different operator here
                 .pipe(
