@@ -3,13 +3,14 @@ import { FSA } from "@src/helpers/FSA";
 /** Action type constants. */
 export const INCREMENT = "INCREMENT";
 export const DECREMENT = "DECREMENT";
+export const SWITCH_PAGE = "SWITCH_PAGE";
 
 /** Action type definitions. */
 export type IncrementAction = FSA<typeof INCREMENT>;
-
 export type DecrementAction = FSA<typeof DECREMENT>;
+export type SwitchPageAction = FSA<typeof SWITCH_PAGE>;
 
-export type Action = IncrementAction | DecrementAction;
+export type Action = IncrementAction | DecrementAction | SwitchPageAction;
 
 /** Action creators.  */
 export function incrementCounter(): IncrementAction {
@@ -21,5 +22,11 @@ export function incrementCounter(): IncrementAction {
 export function decrementCounter(): DecrementAction {
     return {
         type: DECREMENT,
+    };
+}
+
+export function SwitchPage(): SwitchPageAction {
+    return {
+        type: SWITCH_PAGE,
     };
 }
