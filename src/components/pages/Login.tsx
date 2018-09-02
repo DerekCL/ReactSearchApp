@@ -34,6 +34,8 @@ export default class Login extends React.Component<any, any> {
     render() {
         return (
             <div className="Login">
+                <h1>Login</h1>
+                <hr />
                 <form onSubmit={this.handleSubmit}>
                     <FormGroup controlId="email" bsSize="large">
                         <ControlLabel>Email</ControlLabel>
@@ -60,10 +62,14 @@ export default class Login extends React.Component<any, any> {
                     >
                         Login
                     </Button>
+                    <hr />
                     <div>
-                        <a href="" onClick={this.RegisterRedirect}>
-                            Register Here
-                        </a>
+                        <p>
+                            Dont have an account? Sign Up{" "}
+                            <a href="" onClick={this.RegisterRedirect}>
+                                Here
+                            </a>
+                        </p>
                     </div>
                 </form>
             </div>

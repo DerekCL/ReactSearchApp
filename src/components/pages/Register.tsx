@@ -39,6 +39,9 @@ export default class Register extends React.Component<any, any> {
     render() {
         return (
             <div className="Register">
+                <h1>Register</h1>
+                <p>Please fill in this form to create an account.</p>
+                <hr />
                 <form onSubmit={this.handleSubmit}>
                     <FormGroup controlId="email" bsSize="large">
                         <ControlLabel>Email</ControlLabel>
@@ -67,17 +70,20 @@ export default class Register extends React.Component<any, any> {
                     </Button>
                     <div>
                         <p>
-                            By creating an account you agree to our
+                            By creating an account you agree to our{" "}
                             <a href="" onClick={this.TOSRedirect}>
                                 Terms of Service
                             </a>
                             .
                         </p>
                     </div>
-                    <div>
-                        <a href="" onClick={this.LoginRedirect}>
-                            Register Here
-                        </a>
+                    <div className="signin">
+                        <p>
+                            Already have an account?{" "}
+                            <a href="" onClick={this.LoginRedirect}>
+                                Sign in.
+                            </a>
+                        </p>
                     </div>
                 </form>
             </div>
