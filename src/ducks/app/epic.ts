@@ -30,7 +30,8 @@ const LoginEpic: Epic<any, RootState> = (action$, store) =>
                 crossDomain: true,
                 method: "GET",
                 responseType: "json",
-                url: "http://ip.jsontest.com/",
+                url:
+                    "http://www.localhost:7000/?companies[]=nike&companies[]=adidas&companies[]=google&companies[]=microsoft&companies[]=balfour&companies[]=ethoca",
             })
                 // Note the different operator here
                 .pipe(
