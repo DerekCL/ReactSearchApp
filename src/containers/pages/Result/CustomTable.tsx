@@ -1,7 +1,7 @@
 import * as React from "react";
 import { connect } from "react-redux";
 
-import CustomTable from "@src/components/pages/Search/CustomTable";
+import CustomTable from "@src/components/pages/Result/CustomTable";
 import { Action, State } from "@src/store/configureStore";
 
 const data = [

@@ -1,7 +1,7 @@
 import * as React from "react";
 import { pure } from "recompose";
 
-import CustomTable from "@src/containers/pages/search/CustomTable";
+import CustomTable from "@src/containers/pages/Result/CustomTable";
 
 const Search: React.SFC<any> = () => (
     <div className="Search">
