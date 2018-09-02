@@ -2,7 +2,11 @@ import * as React from "react";
 import { connect } from "react-redux";
 
 import PageCheck from "@src/components/PageCheck";
-import { LoginEpicCreator, SwitchPage } from "@src/ducks/app/actions";
+import {
+    LoginEpicCreator,
+    RegisterEpicCreator,
+    SwitchPage,
+} from "@src/ducks/app/actions";
 import { Action, State } from "@src/store/configureStore";
 
 function mapStateToProps(state: State) {
@@ -13,6 +17,7 @@ function mapStateToProps(state: State) {
 function mapDispatchToProps(dispatch: (action: Action) => void) {
     return {
         LoginEpicCreator: () => dispatch(LoginEpicCreator()),
+        RegisterEpicCreator: () => dispatch(RegisterEpicCreator()),
         SwitchPage: (page: string) => dispatch(SwitchPage(page)),
     };
 }

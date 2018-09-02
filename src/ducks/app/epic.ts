@@ -6,7 +6,7 @@ import {
     State as RootState,
 } from "@src/store/configureStore";
 
-import { LOGIN_EPIC, SWITCH_PAGE, SwitchPage } from "./actions";
+import { LOGIN_EPIC, REGISTER_EPIC, SWITCH_PAGE } from "./actions";
 
 /**
  * When we fetch mailing files, make an API request to get the files for the
@@ -21,4 +21,13 @@ const LoginEpic: Epic<any, RootState> = (action$, store) =>
         }),
     );
 
-export default combineEpics(LoginEpic);
+const RegisterEpic: Epic<any, RootState> = (action$, store) =>
+    action$.pipe(
+        ofType(REGISTER_EPIC),
+        mapTo({
+            payload: "Search",
+            type: SWITCH_PAGE,
+        }),
+    );
+
+export default combineEpics(LoginEpic, RegisterEpic);

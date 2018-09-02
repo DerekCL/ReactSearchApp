@@ -8,6 +8,7 @@ import TOS from "@src/components/pages/TOS";
 
 interface Props {
     LoginEpicCreator: () => void;
+    RegisterEpicCreator: () => void;
     SwitchPage: (page: string) => void;
     page: string;
 }
@@ -22,7 +23,12 @@ const PageCheck: React.SFC<Props> = props => {
                 />
             );
         case "Register":
-            return <Register SwitchPage={props.SwitchPage} />;
+            return (
+                <Register
+                    SwitchPage={props.SwitchPage}
+                    RegisterEpicCreator={props.RegisterEpicCreator}
+                />
+            );
         case "Search":
             return <Search SwitchPage={props.SwitchPage} />;
         case "TOS":

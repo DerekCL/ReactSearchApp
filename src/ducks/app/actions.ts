@@ -26,8 +26,8 @@ export function LoginEpicCreator(): LoginEpicAction {
     };
 }
 
-export function LoginEpicCreator(): LoginEpicAction {
+export function RegisterEpicCreator(): RegisterEpicAction {
     return {
-        type: LOGIN_EPIC,
+        type: REGISTER_EPIC,
     };
 }
