@@ -23,7 +23,7 @@ export default class Login extends React.Component<any, any> {
 
     handleSubmit = (event: any): void => {
         event.preventDefault();
-        this.props.SwitchPage("Search");
+        this.props.LoginAC();
     };
 
     RegisterRedirect = (event: any): void => {

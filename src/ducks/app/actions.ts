@@ -18,7 +18,7 @@ export function SwitchPage(page: string): SwitchPageAction {
     };
 }
 
-export function LoginAC(page: string): LoginAction {
+export function LoginAC(): LoginAction {
     return {
         type: LOGIN,
     };

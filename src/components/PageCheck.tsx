@@ -7,6 +7,7 @@ import Search from "@src/components/pages/Search";
 import TOS from "@src/components/pages/TOS";
 
 interface Props {
+    LoginAC: () => void;
     SwitchPage: (page: string) => void;
     page: string;
 }
@@ -14,7 +15,9 @@ interface Props {
 const PageCheck: React.SFC<Props> = props => {
     switch (props.page) {
         case "Login":
-            return <Login SwitchPage={props.SwitchPage} />;
+            return (
+                <Login SwitchPage={props.SwitchPage} LoginAC={props.LoginAC} />
+            );
         case "Register":
             return <Register SwitchPage={props.SwitchPage} />;
         case "Search":

@@ -16,7 +16,7 @@
     "start:watch": "npm-run-all watch:*",
     "start": "npm run start:watch",
     "test": "nyc mocha",
-    "watch:css": "sass --watch sass/index.scss dist/index.css",
+    "watch:css": "sass sass/index.scss dist/index.css",
     "watch:js": "webpack-dev-server --config webpack.dev.js --progress --hot",
     "watch": "npm-run-all watch:*"
   },
@@ -42,7 +42,7 @@
     "redux-logger": "^3.0.6",
     "redux-observable": "^0.18.0",
     "reselect": "^3.0.1",
-    "rxjs": "^5.5.11",
+    "rxjs": "^5.5.12",
     "sass": "^1.9.0",
     "ts-node": "^7.0.0",
     "tsconfig-paths": "^3.4.2",
