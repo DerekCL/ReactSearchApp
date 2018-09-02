@@ -13,16 +13,20 @@ const Nav: React.SFC<any> = props => {
     };
 
     return (
-        <div className="Nav">
-            <p>
-                <a href="" onClick={LoginRedirect}>
-                    Login
-                </a>{" "}
-                <a href="" onClick={RegisterRedirect}>
-                    Register
-                </a>
-            </p>
-        </div>
+        <nav className="Nav">
+            <ul>
+                <li>
+                    <a href="" onClick={LoginRedirect}>
+                        Login
+                    </a>
+                </li>
+                <li>
+                    <a href="" onClick={RegisterRedirect}>
+                        Register
+                    </a>
+                </li>
+            </ul>
+        </nav>
     );
 };
 
