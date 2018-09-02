@@ -1,7 +1,6 @@
 import { combineEpics, Epic, ofType } from "redux-observable";
 import { ajax } from "rxjs/observable/dom/ajax";
 import { catchError, mapTo, mergeMap, switchMap } from "rxjs/operators";
-import { Observable } from "rxjs/Rx";
 
 import {
     Action as RootAction,
@@ -10,9 +9,10 @@ import {
 
 import {
     LOGIN_EPIC,
-    LOGIN_SUCCESS,
+    loginFailure,
+    loginSuccess,
     REGISTER_EPIC,
-    SWITCH_PAGE,
+    switchPage,
 } from "./actions";
 
 /**
@@ -23,44 +23,30 @@ const LoginEpic: Epic<any, RootState> = (action$, store) =>
     action$.pipe(
         ofType(LOGIN_EPIC),
         switchMap(() =>
-            ajax
-                .get("https://www.google.com")
+            ajax({
+                createXHR: () => {
+                    return new XMLHttpRequest();
+                },
+                crossDomain: true,
+                method: "GET",
+                responseType: "json",
+                url: "http://ip.jsontest.com/",
+            })
                 // Note the different operator here
                 .pipe(
                     mergeMap(payload =>
                         // Concat 2 observables so they fire sequentially
-                        [
-                            {
-                                payload,
-                                type: LOGIN_SUCCESS,
-                            },
-                            {
-                                payload: "Search",
-                                type: SWITCH_PAGE,
-                            },
-                        ],
+                        [loginSuccess(payload), switchPage("Search")],
                     ),
-                    catchError(({ xhr }: any) =>
-                        Observable.of({
-                            payload: "TOS",
-                            type: SWITCH_PAGE,
-                        }),
-                    ),
+                    catchError(({ xhr }: any) => [loginFailure(xhr)]),
                 ),
         ),
-        mapTo({
-            payload: "Search",
-            type: SWITCH_PAGE,
-        }),
     );
 
 const RegisterEpic: Epic<any, RootState> = (action$, store) =>
     action$.pipe(
         ofType(REGISTER_EPIC),
-        mapTo({
-            payload: "Search",
-            type: SWITCH_PAGE,
-        }),
+        mapTo(switchPage("Search")),
     );
 
 export default combineEpics(LoginEpic, RegisterEpic);
