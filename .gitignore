@@ -108,6 +108,9 @@ bh_unicode_properties.cache
 # https://packagecontrol.io/packages/sublime-github
 GitHub.sublime-settings
 
+### OTHER ###
+
+authKeys.js
 
 
 # End of https://www.gitignore.io/api/node,sublimetext,visualstudiocode
