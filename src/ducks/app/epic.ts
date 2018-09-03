@@ -7,13 +7,7 @@ import {
     State as RootState,
 } from "@src/store/configureStore";
 
-import {
-    LOGIN_EPIC,
-    loginFailure,
-    loginSuccess,
-    REGISTER_EPIC,
-    switchPage,
-} from "./actions";
+import { LOGIN_EPIC, loginFailure, loginSuccess, switchPage } from "./actions";
 
 const host = `http://www.localhost`;
 const searchPort = 7000;
