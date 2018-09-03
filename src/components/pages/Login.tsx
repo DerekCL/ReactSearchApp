@@ -36,6 +36,7 @@ const Login: React.SFC<any> = props => {
                             token,
                             user,
                         });
+                        props.switchPage("Search");
                     }
                 });
             },
@@ -50,7 +51,7 @@ const Login: React.SFC<any> = props => {
     const content = !!props.isAuthenticated ? (
         <div>
             <p>Authenticated</p>
-            <div>{props.user.email}</div>
+            <div>{props.user.username}</div>
             <div>
                 <button onClick={logout} className="button">
                     Log out
