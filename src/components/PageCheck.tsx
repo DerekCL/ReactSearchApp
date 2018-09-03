@@ -2,8 +2,9 @@ import * as React from "react";
 import { pure } from "recompose";
 
 import Login from "@src/components/pages/Login";
-import Register from "@src/components/pages/Register";
 import Search from "@src/components/pages/Search";
+import Page1 from "@src/components/pages/SocialLogin";
+import SocialLogin from "@src/components/pages/SocialLogin";
 import TOS from "@src/components/pages/TOS";
 
 interface Props {
@@ -17,14 +18,14 @@ const PageCheck: React.SFC<Props> = props => {
     switch (props.page) {
         case "Login":
             return (
-                <Login
+                <Page1
                     switchPage={props.switchPage}
                     loginEpicCreator={props.loginEpicCreator}
                 />
             );
-        case "Register":
+        case "SocialLogin":
             return (
-                <Register
+                <SocialLogin
                     switchPage={props.switchPage}
                     registerEpicCreator={props.registerEpicCreator}
                 />

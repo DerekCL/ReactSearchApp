@@ -16,8 +16,10 @@ import {
 } from "./actions";
 
 const host = `http://www.localhost`;
-const port = 7000;
-const query = `companies[]=nike
+const searchPort = 7000;
+const authPort = 9000;
+const googleAuth = "google";
+const search = `?companies[]=nike
 &companies[]=adidas
 &companies[]=google
 &companies[]=microsoft
@@ -39,7 +41,8 @@ const LoginEpic: Epic<any, RootState> = (action$, store) =>
                 crossDomain: true,
                 method: "GET",
                 responseType: "json",
-                url: `${host}:${port}/?${query}`,
+                // headers: { "Access-Control-Allow-Headers": "Content-Type" },
+                url: `${host}:${authPort}/${googleAuth}`,
             })
                 // Note the different operator here
                 .pipe(
@@ -54,8 +57,26 @@ const LoginEpic: Epic<any, RootState> = (action$, store) =>
 
 const RegisterEpic: Epic<any, RootState> = (action$, store) =>
     action$.pipe(
-        ofType(REGISTER_EPIC),
-        mapTo(switchPage("Search")),
+        ofType(LOGIN_EPIC),
+        switchMap(() =>
+            ajax({
+                createXHR: () => {
+                    return new XMLHttpRequest();
+                },
+                crossDomain: true,
+                method: "GET",
+                responseType: "json",
+                url: `${host}:${searchPort}/${search}`,
+            })
+                // Note the different operator here
+                .pipe(
+                    mergeMap(payload =>
+                        // Concat 2 observables so they fire sequentially
+                        [loginSuccess(payload), switchPage("Search")],
+                    ),
+                    catchError(({ xhr }: any) => [loginFailure(xhr)]),
+                ),
+        ),
     );
 
 export default combineEpics(LoginEpic, RegisterEpic);
