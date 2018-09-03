@@ -1,33 +1,19 @@
 import * as React from "react";
-import { Button, ControlLabel, FormControl, FormGroup } from "react-bootstrap";
-
 import { GoogleLogin } from "react-google-login";
+import { pure } from "recompose";
+
 import * as config from "../../../config/authKeys";
 
-export default class Login extends React.Component<any, any> {
-    constructor(props: any) {
-        super(props);
-
-        this.state = {
-            email: "",
-            password: "",
-        };
-    }
-
-    TOSRedirect = (event: any): void => {
-        event.preventDefault();
-        this.props.switchPage("TOS");
+const Login: React.SFC<any> = props => {
+    const logout = () => {
+        props.googleLogout({ isAuthenticated: false, token: "", user: null });
     };
 
-    logout = () => {
-        this.setState({ isAuthenticated: false, token: "", user: null });
-    };
-
-    onFailure = (error: any) => {
+    const onFailure = (error: any) => {
         alert(error);
     };
 
-    googleResponse = (response: any) => {
+    const googleResponse = (response: any) => {
         const tokenBlob = new Blob(
             [JSON.stringify({ access_token: response.accessToken }, null, 2)],
             { type: "application/json" },
@@ -45,49 +31,58 @@ export default class Login extends React.Component<any, any> {
                 const token = r.headers.get("x-auth-token");
                 r.json().then((user: any) => {
                     if (token) {
-                        this.setState({ isAuthenticated: true, user, token });
+                        props.googleLogin({
+                            isAuthenticated: true,
+                            token,
+                            user,
+                        });
                     }
                 });
             },
         );
     };
 
-    render() {
-        const content = !!this.state.isAuthenticated ? (
+    const TOSRedirect = (event: any): void => {
+        event.preventDefault();
+        props.switchPage("TOS");
+    };
+
+    const content = !!props.isAuthenticated ? (
+        <div>
+            <p>Authenticated</p>
+            <div>{props.user.email}</div>
             <div>
-                <p>Authenticated</p>
-                <div>{this.state.user.email}</div>
-                <div>
-                    <button onClick={this.logout} className="button">
-                        Log out
-                    </button>
-                </div>
+                <button onClick={logout} className="button">
+                    Log out
+                </button>
             </div>
-        ) : (
+        </div>
+    ) : (
+        <div>
+            <GoogleLogin
+                clientId={config.google.client_id}
+                buttonText="Google Login"
+                onSuccess={googleResponse}
+                onFailure={onFailure}
+            />
             <div>
-                <GoogleLogin
-                    clientId={config.google.client_id}
-                    buttonText="Google Login"
-                    onSuccess={this.googleResponse}
-                    onFailure={this.onFailure}
-                />
-                <div>
-                    <p>
-                        By entering you agree to our{" "}
-                        <a href="" onClick={this.TOSRedirect}>
-                            Terms of Service
-                        </a>
-                        .
-                    </p>
-                </div>
+                <p>
+                    By entering you agree to our{" "}
+                    <a href="" onClick={TOSRedirect}>
+                        Terms of Service
+                    </a>
+                    .
+                </p>
             </div>
-        );
-        return (
-            <div className="Login">
-                <h1>Login</h1>
-                <hr />
-                {content}
-            </div>
-        );
-    }
-}
+        </div>
+    );
+    return (
+        <div className="Login">
+            <h1>Login</h1>
+            <hr />
+            {content}
+        </div>
+    );
+};
+
+export default pure(Login);

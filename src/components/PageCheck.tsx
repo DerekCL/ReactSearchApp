@@ -1,9 +1,9 @@
 import * as React from "react";
 import { pure } from "recompose";
 
-import Login from "@src/components/pages/Login";
 import Search from "@src/components/pages/Search";
 import TOS from "@src/components/pages/TOS";
+import Login from "@src/containers/pages/Login";
 
 interface Props {
     loginEpicCreator: () => void;
