@@ -2,25 +2,28 @@ import { FSA } from "@src/helpers/FSA";
 
 /** Action type constants. */
 export const SWITCH_PAGE = "SWITCH_PAGE";
-export const LOGIN_EPIC = "LOGIN_EPIC";
-export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
-export const LOGIN_FAILURE = "LOGIN_FAILURE";
+export const SEARCH_EPIC = "SEARCH_EPIC";
+export const SEARCH_EPIC_SUCCESS = "SEARCH_EPIC_SUCCESS";
+export const SEARCH_EPIC_FAILURE = "SEARCH_EPIC_FAILURE";
+export const SEARCH_RESULTS_UPDATE = "SEARCH_RESULTS_UPDATE";
 export const GOOGLE_LOGIN = "GOOGLE_LOGIN";
 export const GOOGLE_LOGOUT = "GOOGLE_LOGOUT";
 
 /** Action type definitions. */
 export type SwitchPageAction = FSA<typeof SWITCH_PAGE, string>;
-export type LoginEpicAction = FSA<typeof LOGIN_EPIC>;
-export type LoginSuccessAction = FSA<typeof LOGIN_SUCCESS, any>;
-export type LoginFailureAction = FSA<typeof LOGIN_FAILURE, any>;
+export type SearchEpicAction = FSA<typeof SEARCH_EPIC, any>;
+export type SearchSuccessAction = FSA<typeof SEARCH_EPIC_SUCCESS>;
+export type SearchFailureAction = FSA<typeof SEARCH_EPIC_FAILURE, any>;
+export type SearchResultsUpdateAction = FSA<typeof SEARCH_RESULTS_UPDATE, any>;
 export type GoogleLoginAction = FSA<typeof GOOGLE_LOGIN, any>;
 export type GoogleLogoutAction = FSA<typeof GOOGLE_LOGOUT, any>;
 
 export type Action =
     | SwitchPageAction
-    | LoginEpicAction
-    | LoginSuccessAction
-    | LoginFailureAction
+    | SearchEpicAction
+    | SearchSuccessAction
+    | SearchFailureAction
+    | SearchResultsUpdateAction
     | GoogleLoginAction
     | GoogleLogoutAction;
 
@@ -32,23 +35,30 @@ export function switchPage(page: string): SwitchPageAction {
     };
 }
 
-export function loginEpicCreator(): LoginEpicAction {
+export function searchEpicCreator(searchStuff: any): SearchEpicAction {
     return {
-        type: LOGIN_EPIC,
+        payload: searchStuff,
+        type: SEARCH_EPIC,
     };
 }
 
-export function loginSuccess(response: any): LoginSuccessAction {
+export function searchEpicSuccess(): SearchSuccessAction {
     return {
-        payload: response,
-        type: LOGIN_SUCCESS,
+        type: SEARCH_EPIC_SUCCESS,
     };
 }
 
-export function loginFailure(response: any): LoginFailureAction {
+export function searchEpicFailure(response: any): SearchFailureAction {
     return {
         payload: response,
-        type: LOGIN_FAILURE,
+        type: SEARCH_EPIC_FAILURE,
+    };
+}
+
+export function searchResultsUpdate(response: any): SearchResultsUpdateAction {
+    return {
+        payload: response,
+        type: SEARCH_RESULTS_UPDATE,
     };
 }
 

@@ -2,16 +2,19 @@ import * as React from "react";
 import { connect } from "react-redux";
 
 import PageCheck from "@src/components/PageCheck";
-import { switchPage } from "@src/ducks/app/actions";
+import { searchEpicCreator, switchPage } from "@src/ducks/app/actions";
 import { Action, State } from "@src/store/configureStore";
 
 function mapStateToProps(state: State) {
     return {
         page: state.app.page,
+        user: state.app.user,
     };
 }
 function mapDispatchToProps(dispatch: (action: Action) => void) {
     return {
+        searchEpicCreator: (searchStuff: any) =>
+            dispatch(searchEpicCreator(searchStuff)),
         switchPage: (page: string) => dispatch(switchPage(page)),
     };
 }

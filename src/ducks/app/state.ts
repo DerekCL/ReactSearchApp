@@ -1,10 +1,10 @@
-interface SearchDataElement {
+export interface SearchDataElement {
     id: number;
     name: string;
     domain: string;
 }
 
-interface User {
+export interface User {
     id: number;
     username: string;
     google_id: string;
@@ -23,17 +23,11 @@ export interface State {
     user: User;
 }
 
-const dummyData = [
-    { id: 1, name: "Google", domain: "www.google.com" },
-    { id: 2, name: "Microsoft", domain: "www.microsoft.com" },
-    { id: 3, name: "Apple", domain: "www.apple.com" },
-];
-
 /** Initial state for the application. */
 export const initialState: State = {
     isAuthenticated: false,
     page: "Login",
-    searchData: dummyData,
+    searchData: [{ id: 0, name: "", domain: "" }],
     token: "",
     user: {
         id: 0,

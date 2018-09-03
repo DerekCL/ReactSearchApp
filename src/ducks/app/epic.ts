@@ -7,7 +7,13 @@ import {
     State as RootState,
 } from "@src/store/configureStore";
 
-import { LOGIN_EPIC, loginFailure, loginSuccess, switchPage } from "./actions";
+import {
+    SEARCH_EPIC,
+    searchEpicFailure,
+    searchEpicSuccess,
+    searchResultsUpdate,
+    switchPage,
+} from "./actions";
 
 const host = `http://www.localhost`;
 const searchPort = 7000;
@@ -20,57 +26,41 @@ const search = `?companies[]=nike
 &companies[]=balfour
 &companies[]=ethoca`;
 
-/**
- * When we fetch mailing files, make an API request to get the files for the
- * currently chosen year and set them in the store.
- */
-const LoginEpic: Epic<any, RootState> = (action$, store) =>
+const SearchEpic: Epic<any, RootState> = (action$, store) =>
     action$.pipe(
-        ofType(LOGIN_EPIC),
-        switchMap(() =>
+        ofType(SEARCH_EPIC),
+        switchMap(action =>
             ajax({
                 createXHR: () => {
                     return new XMLHttpRequest();
                 },
                 crossDomain: true,
-                method: "GET",
+                method: "POST",
                 responseType: "json",
-                // headers: { "Access-Control-Allow-Headers": "Content-Type" },
-                url: `${host}:${authPort}/${googleAuth}`,
-            })
-                // Note the different operator here
-                .pipe(
-                    mergeMap(payload =>
-                        // Concat 2 observables so they fire sequentially
-                        [loginSuccess(payload), switchPage("Search")],
-                    ),
-                    catchError(({ xhr }: any) => [loginFailure(xhr)]),
-                ),
-        ),
-    );
-
-const RegisterEpic: Epic<any, RootState> = (action$, store) =>
-    action$.pipe(
-        ofType(LOGIN_EPIC),
-        switchMap(() =>
-            ajax({
-                createXHR: () => {
-                    return new XMLHttpRequest();
+                body: {
+                    user: action.payload.user,
                 },
-                crossDomain: true,
-                method: "GET",
-                responseType: "json",
-                url: `${host}:${searchPort}/${search}`,
+                url: `${host}:${searchPort}/?${action.payload.query}`,
             })
                 // Note the different operator here
                 .pipe(
-                    mergeMap(payload =>
+                    mergeMap(payload => {
                         // Concat 2 observables so they fire sequentially
-                        [loginSuccess(payload), switchPage("Search")],
-                    ),
-                    catchError(({ xhr }: any) => [loginFailure(xhr)]),
+                        const response = payload.response;
+                        const responseWithKeys = response.map(
+                            (company: any, i: number) => {
+                                company.id = i;
+                                return company;
+                            },
+                        );
+                        return [
+                            searchEpicSuccess(),
+                            searchResultsUpdate(responseWithKeys),
+                        ];
+                    }),
+                    catchError(({ xhr }: any) => [searchEpicFailure(xhr)]),
                 ),
         ),
     );
 
-export default combineEpics(LoginEpic, RegisterEpic);
+export default combineEpics(SearchEpic);
