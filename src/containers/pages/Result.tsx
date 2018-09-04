@@ -1,7 +1,7 @@
 import * as React from "react";
 import { connect } from "react-redux";
 
-import CustomTable from "@src/components/pages/Result/CustomTable";
+import Result from "@src/components/pages/Result";
 import { Action, State } from "@src/store/configureStore";
 
 function mapStateToProps(state: State) {
@@ -16,4 +16,4 @@ function mapDispatchToProps(dispatch: (action: Action) => void) {
 export default connect(
     mapStateToProps,
     mapDispatchToProps,
-)(CustomTable) as React.ComponentType<any>;
+)(Result) as React.ComponentType<any>;

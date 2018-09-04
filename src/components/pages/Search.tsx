@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import Result from "@src/components/pages/Result";
+import Result from "@src/containers/pages/Result";
 
 class Search extends React.Component<any, any> {
     constructor(props: any) {
