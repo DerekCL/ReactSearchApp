@@ -1,4 +1,5 @@
-@import "form", "nav";
+@import "./components/pages/result", "./components/nav",
+  "./components/pages/search";
 
 body {
   font-family: arial;

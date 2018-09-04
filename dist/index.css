@@ -1,3 +1,18 @@
+@import url("https://npmcdn.com/react-bootstrap-table/dist/react-bootstrap-table-all.min.css");
+.Result table {
+  border-collapse: collapse;
+  width: 100%;
+}
+.Result td,
+.Result th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+.Result tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
 .Nav {
   background: #ff5353;
   padding: 20px 10px;
