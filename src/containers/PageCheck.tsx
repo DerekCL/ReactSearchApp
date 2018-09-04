@@ -13,8 +13,8 @@ function mapStateToProps(state: State) {
 }
 function mapDispatchToProps(dispatch: (action: Action) => void) {
     return {
-        searchEpicCreator: (searchStuff: any) =>
-            dispatch(searchEpicCreator(searchStuff)),
+        searchEpicCreator: (googleAccessToken: string) =>
+            dispatch(searchEpicCreator(googleAccessToken)),
         switchPage: (page: string) => dispatch(switchPage(page)),
     };
 }

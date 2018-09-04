@@ -8,7 +8,7 @@ import Login from "@src/containers/pages/Login";
 import { User } from "@src/ducks/app/state";
 
 interface Props {
-    searchEpicCreator: (searchStuff: any) => void;
+    searchEpicCreator: (googleAccessToken: string) => void;
     switchPage: (page: string) => void;
     page: string;
     user: User;

@@ -29,8 +29,8 @@ class Search extends React.Component<any, any> {
         });
 
         this.props.searchEpicCreator({
+            googleAccessToken: this.props.user.google_access_token,
             query: queryString,
-            user: this.props.user.googleAccessToken,
         });
     }
 
