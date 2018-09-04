@@ -1,35 +1,26 @@
 import * as React from "react";
 import { pure } from "recompose";
 
-import Search from "@src/components/pages/Search";
 import TOS from "@src/components/pages/TOS";
 import Login from "@src/containers/pages/Login";
+import Search from "@src/containers/pages/Search";
 
 import { User } from "@src/ducks/app/state";
 
 interface Props {
-    searchEpicCreator: (googleAccessToken: string) => void;
-    switchPage: (page: string) => void;
     page: string;
-    user: User;
 }
 
 const PageCheck: React.SFC<Props> = props => {
     switch (props.page) {
         case "Login":
-            return <Login switchPage={props.switchPage} />;
+            return <Login />;
         case "Search":
-            return (
-                <Search
-                    switchPage={props.switchPage}
-                    searchEpicCreator={props.searchEpicCreator}
-                    user={props.user}
-                />
-            );
+            return <Search />;
         case "TOS":
-            return <TOS switchPage={props.switchPage} />;
+            return <TOS />;
         default:
-            return <Login switchPage={props.switchPage} />;
+            return <Login />;
     }
 };
 
