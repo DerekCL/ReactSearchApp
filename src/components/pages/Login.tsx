@@ -48,15 +48,7 @@ const Login: React.SFC<any> = props => {
         props.switchPage("TOS");
     };
 
-    const content = !!props.isAuthenticated ? (
-        <div>
-            <div>
-                <button onClick={logout} className="button">
-                    Log out
-                </button>
-            </div>
-        </div>
-    ) : (
+    const content = (
         <div>
             <GoogleLogin
                 clientId={config.google.client_id}
@@ -77,8 +69,7 @@ const Login: React.SFC<any> = props => {
     );
     return (
         <div className="Login">
-            <h1>Login</h1>
-            <hr />
+            <h1>Welcome to the React Search App</h1>
             {content}
         </div>
     );
