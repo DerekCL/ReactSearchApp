@@ -1,10 +1,12 @@
 .Nav {
   background: #ff5353;
   padding: 20px 10px;
+  overflow: auto;
   ul {
     max-width: 960px;
     margin: 0 auto;
     padding: 0;
+    float: right;
   }
   li {
     list-style-type: none;
@@ -18,5 +20,8 @@
     text-decoration: none;
     padding: 10px;
     display: block;
+  }
+  .Logout {
+    background-color: #121212;
   }
 }

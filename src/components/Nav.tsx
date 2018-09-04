@@ -24,8 +24,8 @@ const Nav: React.SFC<any> = props => {
 
     const content = !!props.isAuthenticated ? (
         <ul>
-            <li>
-                <a onClick={logout}>Log out</a>
+            <li className="Logout">
+                <a onClick={logout}>Logout</a>
             </li>
             <li>
                 <a href="" onClick={TOSRedirect}>
