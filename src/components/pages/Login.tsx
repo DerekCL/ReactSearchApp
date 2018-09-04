@@ -50,8 +50,6 @@ const Login: React.SFC<any> = props => {
 
     const content = !!props.isAuthenticated ? (
         <div>
-            <p>Authenticated</p>
-            <div>{props.user.username}</div>
             <div>
                 <button onClick={logout} className="button">
                     Log out
