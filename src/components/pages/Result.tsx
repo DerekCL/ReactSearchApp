@@ -1,7 +1,12 @@
+import { SearchDataElement } from "@src/ducks/app/state";
 import * as React from "react";
 import { pure } from "recompose";
 
-const Result: React.SFC<any> = props => {
+interface Props {
+    searchData: SearchDataElement[];
+}
+
+const Result: React.SFC<Props> = props => {
     const header = (
         <thead>
             <tr>
