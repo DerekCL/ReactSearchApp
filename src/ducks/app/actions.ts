@@ -11,7 +11,7 @@ export const GOOGLE_LOGOUT = "GOOGLE_LOGOUT";
 
 /** Action type definitions. */
 export type SwitchPageAction = FSA<typeof SWITCH_PAGE, string>;
-export type SearchEpicAction = FSA<typeof SEARCH_EPIC, any>;
+export type SearchEpicAction = FSA<typeof SEARCH_EPIC, string>;
 export type SearchSuccessAction = FSA<typeof SEARCH_EPIC_SUCCESS>;
 export type SearchFailureAction = FSA<typeof SEARCH_EPIC_FAILURE, any>;
 export type SearchResultsUpdateAction = FSA<typeof SEARCH_RESULTS_UPDATE, any>;
@@ -35,9 +35,9 @@ export function switchPage(page: string): SwitchPageAction {
     };
 }
 
-export function searchEpicCreator(searchStuff: any): SearchEpicAction {
+export function searchEpicCreator(googleAccessToken: any): SearchEpicAction {
     return {
-        payload: searchStuff,
+        payload: googleAccessToken,
         type: SEARCH_EPIC,
     };
 }

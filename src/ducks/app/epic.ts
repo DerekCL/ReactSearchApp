@@ -38,7 +38,7 @@ const SearchEpic: Epic<any, RootState> = (action$, store) =>
                 method: "POST",
                 responseType: "json",
                 body: {
-                    user: action.payload.user,
+                    googleAccessToken: action.payload.googleAccessToken,
                 },
                 url: `${host}:${searchPort}/?${action.payload.query}`,
             })

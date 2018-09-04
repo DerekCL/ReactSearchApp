@@ -30,7 +30,7 @@ class Search extends React.Component<any, any> {
 
         this.props.searchEpicCreator({
             query: queryString,
-            user: this.props.user,
+            user: this.props.user.googleAccessToken,
         });
     }
 
