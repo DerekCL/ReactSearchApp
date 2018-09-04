@@ -2,17 +2,19 @@ import * as React from "react";
 import { connect } from "react-redux";
 
 import Nav from "@src/components/Nav";
-import { SwitchPage } from "@src/ducks/app/actions";
+import { googleLogout, switchPage } from "@src/ducks/app/actions";
 import { Action, State } from "@src/store/configureStore";
 
 function mapStateToProps(state: State) {
     return {
-        page: state.app.page,
+        isAuthenticated: state.app.isAuthenticated,
+        user: state.app.user,
     };
 }
 function mapDispatchToProps(dispatch: (action: Action) => void) {
     return {
-        SwitchPage: (page: string) => dispatch(SwitchPage(page)),
+        switchPage: (page: string) => dispatch(switchPage(page)),
+        googleLogout: (authPayload: any) => dispatch(googleLogout(authPayload)),
     };
 }
 

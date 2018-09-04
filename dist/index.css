@@ -1,5 +1,44 @@
+@import url("https://npmcdn.com/react-bootstrap-table/dist/react-bootstrap-table-all.min.css");
+.Result table {
+  border-collapse: collapse;
+  width: 100%;
+}
+.Result td,
+.Result th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+.Result tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
 .Nav {
-  background-color: blueviolet;
+  background: #ff5353;
+  padding: 20px 10px;
+}
+.Nav ul {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0;
+}
+.Nav li {
+  list-style-type: none;
+  display: inline-block;
+  margin: 0 10px 0 0;
+}
+.Nav a {
+  color: #fff;
+  font-size: 18px;
+  background: rgba(255, 255, 255, 0.2);
+  text-decoration: none;
+  padding: 10px;
+  display: block;
+}
+
+body {
+  font-family: arial;
+  margin: 0;
 }
 
 /*# sourceMappingURL=index.css.map */

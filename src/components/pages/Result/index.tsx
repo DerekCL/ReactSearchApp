@@ -3,11 +3,10 @@ import { pure } from "recompose";
 
 import CustomTable from "@src/containers/pages/Result/CustomTable";
 
-const Search: React.SFC<any> = () => (
-    <div className="Search">
-        <p className="Table-header">Basic Table</p>
+const Result: React.SFC<any> = () => (
+    <div className="Result">
         <CustomTable />
     </div>
 );
 
-export default pure(Search);
+export default pure(Result);
