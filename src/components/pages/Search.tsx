@@ -17,7 +17,8 @@ class Search extends React.Component<any, any> {
     }
 
     validateForm() {
-        return this.state.query.length > 0;
+        const splitQuery = this.state.query.split(",");
+        return this.state.query.length > 0 && splitQuery.length <= 25;
     }
 
     handleSubmit = (event: any): void => {
