@@ -51,6 +51,17 @@
   padding: 10px;
   display: block;
 }
+.Nav .Logout {
+  background-color: #121212;
+}
+
+.Search {
+  margin: 0 2%;
+}
+.Search h1 {
+  margin-top: 3%;
+  text-align: center;
+}
 
 .TOS {
   margin: 0% 1%;

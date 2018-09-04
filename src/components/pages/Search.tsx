@@ -37,7 +37,7 @@ class Search extends React.Component<any, any> {
 
     render() {
         return (
-            <div>
+            <div className="Search">
                 <form onSubmit={this.handleSubmit}>
                     <h1>Domain Search</h1>
                     <h3>
