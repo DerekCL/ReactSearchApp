@@ -4,6 +4,7 @@ import { pure } from "recompose";
 const Nav: React.SFC<any> = props => {
     const logout = () => {
         props.googleLogout({ isAuthenticated: false, token: "", user: null });
+        props.switchPage("Login");
     };
 
     const LoginRedirect = (event: any): void => {
@@ -43,6 +44,11 @@ const Nav: React.SFC<any> = props => {
             <li>
                 <a href="" onClick={LoginRedirect}>
                     Login
+                </a>
+            </li>
+            <li>
+                <a href="" onClick={TOSRedirect}>
+                    Terms Of Service
                 </a>
             </li>
         </ul>
