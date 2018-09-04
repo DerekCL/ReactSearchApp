@@ -26,7 +26,7 @@ const Login: React.SFC<any> = props => {
             method: "POST",
             mode: corsString,
         };
-        fetch("http://localhost:9000/auth/google/token", options).then(
+        fetch("http://localhost:9000/auth/v1/auth/google/token", options).then(
             (r: any) => {
                 const token = r.headers.get("x-auth-token");
                 r.json().then((user: any) => {

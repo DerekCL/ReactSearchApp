@@ -17,14 +17,6 @@ import {
 
 const host = `http://www.localhost`;
 const searchPort = 7000;
-const authPort = 9000;
-const googleAuth = "google";
-const search = `?companies[]=nike
-&companies[]=adidas
-&companies[]=google
-&companies[]=microsoft
-&companies[]=balfour
-&companies[]=ethoca`;
 
 const SearchEpic: Epic<any, RootState> = (action$, store) =>
     action$.pipe(
@@ -40,7 +32,7 @@ const SearchEpic: Epic<any, RootState> = (action$, store) =>
                 body: {
                     google_access_token: action.payload.googleAccessToken,
                 },
-                url: `${host}:${searchPort}/?${action.payload.query}`,
+                url: `${host}:${searchPort}/search/v1/?${action.payload.query}`,
             })
                 // Note the different operator here
                 .pipe(
