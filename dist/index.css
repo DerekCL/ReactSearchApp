@@ -52,6 +52,10 @@
   display: block;
 }
 
+.TOS {
+  margin: 0% 1%;
+}
+
 body {
   font-family: arial;
   margin: 0;

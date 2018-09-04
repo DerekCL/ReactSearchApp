@@ -4,21 +4,19 @@ import { pure } from "recompose";
 const TOS: React.SFC<any> = () => (
     <div className="TOS">
         <h2>Web Site Terms and Conditions of Use</h2>
-
         <h3>1. Terms</h3>
-
-        <p>
-            By accessing this web site, you are agreeing to be bound by these
-            web site Terms and Conditions of Use, all applicable laws and
-            regulations, and agree that you are responsible for compliance with
-            any applicable local laws. If you do not agree with any of these
-            terms, you are prohibited from using or accessing this site. The
-            materials contained in this web site are protected by applicable
-            copyright and trade mark law.
-        </p>
-
+        <ol type="a">
+            <li>
+                By accessing this web site, you are agreeing to be bound by
+                these web site Terms and Conditions of Use, all applicable laws
+                and regulations, and agree that you are responsible for
+                compliance with any applicable local laws. If you do not agree
+                with any of these terms, you are prohibited from using or
+                accessing this site. The materials contained in this web site
+                are protected by applicable copyright and trade mark law.
+            </li>
+        </ol>
         <h3>2. Use License</h3>
-
         <ol type="a">
             <li>
                 Permission is granted to temporarily download one copy of the
@@ -55,9 +53,7 @@ const TOS: React.SFC<any> = () => (
                 printed format.
             </li>
         </ol>
-
         <h3>3. Disclaimer</h3>
-
         <ol type="a">
             <li>
                 The materials on Derek Lewandowski's web site are provided "as
@@ -73,72 +69,72 @@ const TOS: React.SFC<any> = () => (
                 to this site.
             </li>
         </ol>
-
         <h3>4. Limitations</h3>
-
-        <p>
-            In no event shall Derek Lewandowski or its suppliers be liable for
-            any damages (including, without limitation, damages for loss of data
-            or profit, or due to business interruption,) arising out of the use
-            or inability to use the materials on Derek Lewandowski's Internet
-            site, even if Derek Lewandowski or a Derek Lewandowski authorized
-            representative has been notified orally or in writing of the
-            possibility of such damage. Because some jurisdictions do not allow
-            limitations on implied warranties, or limitations of liability for
-            consequential or incidental damages, these limitations may not apply
-            to you.
-        </p>
-
+        <ol type="a">
+            <li>
+                In no event shall Derek Lewandowski or its suppliers be liable
+                for any damages (including, without limitation, damages for loss
+                of data or profit, or due to business interruption,) arising out
+                of the use or inability to use the materials on Derek
+                Lewandowski's Internet site, even if Derek Lewandowski or a
+                Derek Lewandowski authorized representative has been notified
+                orally or in writing of the possibility of such damage. Because
+                some jurisdictions do not allow limitations on implied
+                warranties, or limitations of liability for consequential or
+                incidental damages, these limitations may not apply to you.
+            </li>
+        </ol>
         <h3>5. Revisions and Errata</h3>
-
-        <p>
-            The materials appearing on Derek Lewandowski's web site could
-            include technical, typographical, or photographic errors. Derek
-            Lewandowski does not warrant that any of the materials on its web
-            site are accurate, complete, or current. Derek Lewandowski may make
-            changes to the materials contained on its web site at any time
-            without notice. Derek Lewandowski does not, however, make any
-            commitment to update the materials.
-        </p>
-
+        <ol type="a">
+            <li>
+                The materials appearing on Derek Lewandowski's web site could
+                include technical, typographical, or photographic errors. Derek
+                Lewandowski does not warrant that any of the materials on its
+                web site are accurate, complete, or current. Derek Lewandowski
+                may make changes to the materials contained on its web site at
+                any time without notice. Derek Lewandowski does not, however,
+                make any commitment to update the materials.
+            </li>
+        </ol>
         <h3>6. Links</h3>
-
-        <p>
-            Derek Lewandowski has not reviewed all of the sites linked to its
-            Internet web site and is not responsible for the contents of any
-            such linked site. The inclusion of any link does not imply
-            endorsement by Derek Lewandowski of the site. Use of any such linked
-            web site is at the user's own risk.
-        </p>
-
+        <ol type="a">
+            <li>
+                Derek Lewandowski has not reviewed all of the sites linked to
+                its Internet web site and is not responsible for the contents of
+                any such linked site. The inclusion of any link does not imply
+                endorsement by Derek Lewandowski of the site. Use of any such
+                linked web site is at the user's own risk.
+            </li>
+        </ol>
         <h3>7. Site Terms of Use Modifications</h3>
-
-        <p>
-            Derek Lewandowski may revise these terms of use for its web site at
-            any time without notice. By using this web site you are agreeing to
-            be bound by the then current version of these Terms and Conditions
-            of Use.
-        </p>
-
+        <ol type="a">
+            <li>
+                Derek Lewandowski may revise these terms of use for its web site
+                at any time without notice. By using this web site you are
+                agreeing to be bound by the then current version of these Terms
+                and Conditions of Use.
+            </li>
+        </ol>
         <h3>8. Governing Law</h3>
-
-        <p>
-            Any claim relating to Derek Lewandowski's web site shall be governed
-            by the laws of the State of Texas without regard to its conflict of
-            law provisions.
-        </p>
-
-        <p>General Terms and Conditions applicable to Use of a Web Site.</p>
-
+        <ol type="a">
+            <li>
+                Any claim relating to Derek Lewandowski's web site shall be
+                governed by the laws of the State of Texas without regard to its
+                conflict of law provisions.
+            </li>
+        </ol>
+        <ol type="a">
+            General Terms and Conditions applicable to Use of a Web Site.
+        </ol>
         <h2>Privacy Policy</h2>
-
-        <p>
-            Your privacy is very important to us. Accordingly, we have developed
-            this Policy in order for you to understand how we collect, use,
-            communicate and disclose and make use of personal information. The
-            following outlines our privacy policy.
-        </p>
-
+        <ol type="a">
+            <li>
+                Your privacy is very important to us. Accordingly, we have
+                developed this Policy in order for you to understand how we
+                collect, use, communicate and disclose and make use of personal
+                information. The following outlines our privacy policy.
+            </li>
+        </ol>
         <ul>
             <li>
                 Before or at the time of collecting personal information, we
@@ -176,12 +172,13 @@ const TOS: React.SFC<any> = () => (
                 personal information.
             </li>
         </ul>
-
-        <p>
-            We are committed to conducting our business in accordance with these
-            principles in order to ensure that the confidentiality of personal
-            information is protected and maintained.
-        </p>
+        <ol type="a">
+            <li>
+                We are committed to conducting our business in accordance with
+                these principles in order to ensure that the confidentiality of
+                personal information is protected and maintained.
+            </li>
+        </ol>
     </div>
 );
 
