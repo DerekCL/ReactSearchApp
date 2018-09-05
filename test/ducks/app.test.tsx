@@ -28,6 +28,13 @@ describe("app", () => {
             };
             expect(switchPage("Login")).to.deep.equal(expectedAction);
         });
+        it("should change the page state to Login", () => {
+            const stateBefore = { ...initialState };
+            const newState = reducer(stateBefore, switchPage("Login"));
+            expect(newState)
+                .to.have.property("page")
+                .that.is.equal("Login");
+        });
     });
     describe("Search Epic", () => {
         it("should create an action to start the search epic", () => {
@@ -65,6 +72,16 @@ describe("app", () => {
             };
             expect(searchResultsUpdate("filler")).to.deep.equal(expectedAction);
         });
+        it("should change the searchData state to filler", () => {
+            const stateBefore = { ...initialState };
+            const newState = reducer(
+                stateBefore,
+                searchResultsUpdate("filler"),
+            );
+            expect(newState)
+                .to.have.property("searchData")
+                .that.is.equal("filler");
+        });
     });
     describe("Google Login", () => {
         it("should create an action to say the user has logged in", () => {
@@ -84,6 +101,27 @@ describe("app", () => {
                 }),
             ).to.deep.equal(expectedAction);
         });
+
+        it("should change the auth state when given an action creator", () => {
+            const stateBefore = { ...initialState };
+            const newState = reducer(
+                stateBefore,
+                googleLogin({
+                    isAuthenticated: true,
+                    token: "aae%edf1",
+                    user: "filler",
+                }),
+            );
+            expect(newState)
+                .to.have.property("isAuthenticated")
+                .that.is.equal(true);
+            expect(newState)
+                .to.have.property("token")
+                .that.is.equal("aae%edf1");
+            expect(newState)
+                .to.have.property("user")
+                .that.is.equal("filler");
+        });
     });
     describe("Google Logout", () => {
         it("should create an action to say the user has logged out", () => {
@@ -94,6 +132,22 @@ describe("app", () => {
             expect(
                 googleLogout({ isAuthenticated: false, token: "", user: null }),
             ).to.deep.equal(expectedAction);
+        });
+        it("should change the auth state when given an action creator", () => {
+            const stateBefore = { ...initialState };
+            const newState = reducer(
+                stateBefore,
+                googleLogin({ isAuthenticated: false, token: "", user: null }),
+            );
+            expect(newState)
+                .to.have.property("isAuthenticated")
+                .that.is.equal(false);
+            expect(newState)
+                .to.have.property("token")
+                .that.is.equal("");
+            expect(newState)
+                .to.have.property("user")
+                .that.is.equal(null);
         });
     });
 });
