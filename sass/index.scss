@@ -1,6 +1,7 @@
-$red: red;
-.counter {
-  h1 {
-    color: $red;
-  }
+@import "./components/pages/Result", "./components/pages/Login",
+  "./components/Nav", "./components/pages/Search", "./components/pages/TOS";
+
+body {
+  font-family: arial;
+  margin: 0;
 }

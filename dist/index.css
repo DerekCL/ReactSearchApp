@@ -1,0 +1,75 @@
+.Result table {
+  border-collapse: collapse;
+  width: 100%;
+}
+.Result td,
+.Result th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+.Result tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+.Login h1 {
+  margin-top: 6%;
+  text-align: center;
+}
+.Login button {
+  display: flex !important;
+  width: 290px !important;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+}
+.Login p {
+  text-align: center;
+}
+
+.Nav {
+  background: #ff5353;
+  padding: 20px 10px;
+  overflow: auto;
+}
+.Nav ul {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0;
+  float: right;
+}
+.Nav li {
+  list-style-type: none;
+  display: inline-block;
+  margin: 0 10px 0 0;
+}
+.Nav a {
+  color: #fff;
+  font-size: 18px;
+  background: rgba(255, 255, 255, 0.2);
+  text-decoration: none;
+  padding: 10px;
+  display: block;
+}
+.Nav .Logout {
+  background-color: #121212;
+}
+
+.Search {
+  margin: 0 2%;
+}
+.Search h1 {
+  margin-top: 3%;
+  text-align: center;
+}
+
+.TOS {
+  margin: 0% 1%;
+}
+
+body {
+  font-family: arial;
+  margin: 0;
+}
+
+/*# sourceMappingURL=index.css.map */
