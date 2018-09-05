@@ -8,15 +8,10 @@ import { Action, State } from "@src/store/configureStore";
 function mapStateToProps(state: State) {
     return {
         page: state.app.page,
-        user: state.app.user,
     };
 }
 function mapDispatchToProps(dispatch: (action: Action) => void) {
-    return {
-        searchEpicCreator: (googleAccessToken: string) =>
-            dispatch(searchEpicCreator(googleAccessToken)),
-        switchPage: (page: string) => dispatch(switchPage(page)),
-    };
+    return {};
 }
 
 export default connect(

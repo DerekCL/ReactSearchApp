@@ -1,7 +1,12 @@
+import { SearchDataElement } from "@src/ducks/app/state";
 import * as React from "react";
 import { pure } from "recompose";
 
-const CustomTable: React.SFC<any> = props => {
+interface Props {
+    searchData: SearchDataElement[];
+}
+
+const Result: React.SFC<Props> = props => {
     const header = (
         <thead>
             <tr>
@@ -19,11 +24,13 @@ const CustomTable: React.SFC<any> = props => {
         );
     });
     return (
-        <table>
-            {header}
-            <tbody>{content}</tbody>
-        </table>
+        <div className="Result">
+            <table>
+                {header}
+                <tbody>{content}</tbody>
+            </table>
+        </div>
     );
 };
 
-export default pure(CustomTable);
+export default pure(Result);

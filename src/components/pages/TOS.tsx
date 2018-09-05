@@ -1,7 +1,7 @@
 import * as React from "react";
 import { pure } from "recompose";
 
-const TOS: React.SFC<any> = () => (
+const TOS: React.SFC<{}> = () => (
     <div className="TOS">
         <h2>Web Site Terms and Conditions of Use</h2>
         <h3>1. Terms</h3>
