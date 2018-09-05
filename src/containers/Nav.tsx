@@ -13,8 +13,8 @@ function mapStateToProps(state: State) {
 }
 function mapDispatchToProps(dispatch: (action: Action) => void) {
     return {
-        switchPage: (page: string) => dispatch(switchPage(page)),
         googleLogout: (authPayload: any) => dispatch(googleLogout(authPayload)),
+        switchPage: (page: string) => dispatch(switchPage(page)),
     };
 }
 

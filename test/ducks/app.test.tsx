@@ -96,19 +96,4 @@ describe("app", () => {
             ).to.deep.equal(expectedAction);
         });
     });
-    // describe("decrementCounter", () => {
-    //     it("should create an action to decrement a number", () => {
-    //         const expectedAction = {
-    //             type: DECREMENT,
-    //         };
-    //         expect(decrementCounter()).to.deep.equal(expectedAction);
-    //     });
-    //     it("0 - 1 = -1", () => {
-    //         const stateBefore = { ...initialState };
-    //         const newState = reducer(stateBefore, decrementCounter());
-    //         expect(newState)
-    //             .to.have.property("count")
-    //             .that.is.equal(-1);
-    //     });
-    // });
 });
